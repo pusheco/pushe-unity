@@ -24,6 +24,8 @@ allprojects {
       jcenter()
 	  // Pushe Extended plugin
 	  maven { url 'https://dl.bintray.com/pushe/plugin' }
+	  // Pushe repo for PreRelease versions
+	  maven { url 'https://dl.bintray.com/pushe/preview'}
       flatDir {
         dirs 'libs'
       }
@@ -36,14 +38,14 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
 	// Adding Pushe Plus
-	implementation ('co.pushe.plus:unity-extended:0.4.6')
+	implementation ('co.pushe.plus:unity-extended:0.4.7-beta10')
 	// MultiDex
 	implementation 'com.android.support:multidex:1.0.3'
 **DEPS**}
 
 android {
-	compileSdkVersion 28
-	buildToolsVersion '28.0.3'
+	compileSdkVersion 29
+	buildToolsVersion '29.0.3'
 
 	defaultConfig {
 		// Enable MultiDex -- Pushe natively adds multidex support library. Adding this is enough.
