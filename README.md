@@ -1,4 +1,4 @@
-# Implementation of Pushe plugin for Unity game endgine
+# Implementation of Pushe plugin for Unity game engine
 
 ## Content
 

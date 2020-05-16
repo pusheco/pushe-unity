@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode release.versionCode
         versionName release.versionName
         multiDexEnabled true
@@ -33,7 +33,7 @@ dependencies {
     def noCustomRxJava = { exclude group: "co.pushe.plus", module: "rxjava" }
 
     // Add all Pushe modules
-    def pusheVersion = '2.0.4'
+    def pusheVersion = '2.1.1-beta10'
     api "co.pushe.plus:core:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:notification:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:analytics:$pusheVersion", noCustomRxJava
