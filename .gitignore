@@ -6,3 +6,11 @@ unity-extended-library/extended/.settings/
 unity-extended-library/extended/.project
 
 .vscode/
+
+scripts/Library
+scripts/Logs
+scripts/Packages
+scripts/ProjectSettings
+scripts/Temp
+
+*.meta

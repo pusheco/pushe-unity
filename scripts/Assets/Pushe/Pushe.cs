@@ -23,7 +23,7 @@ public static class Pushe
     /// </summary>
     public static void Initialize()
     {
-        return PusheNative().CallStatic("initialize");
+        PusheNative().CallStatic("initialize");
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public static class Pushe
     /// <summary>
     public static void setUserConsentGiven()
     {
-        return PusheNative().CallStatic("setUserConsentGiven");
+        PusheNative().CallStatic("setUserConsentGiven");
     }
 
     /// <summary>
