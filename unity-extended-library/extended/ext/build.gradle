@@ -10,7 +10,6 @@ android {
         targetSdkVersion 29
         versionCode release.versionCode
         versionName release.versionName
-        multiDexEnabled true
         consumerProguardFiles 'consumer-rules.pro'
 
     }
@@ -40,7 +39,7 @@ dependencies {
     api "co.pushe.plus:sentry:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:datalytics:$pusheVersion", noCustomRxJava
 
-    api 'com.android.support:multidex:1.0.3'
+    api 'androidx.multidex:multidex:2.0.1'
 
     // Avoid adding custom RxJava since plugins might not be able to handle it.
     implementation 'io.reactivex.rxjava2:rxjava:2.2.9'

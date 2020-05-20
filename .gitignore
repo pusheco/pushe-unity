@@ -1,9 +1,10 @@
 
 unity-extended-library/extended/.idea/
-
 unity-extended-library/extended/.settings/
-
 unity-extended-library/extended/.project
+unity-extended-library/extended/ext/.settings/
+unity-extended-library/extended/ext/.project
+unity-extended-library/extended/ext/.classpath
 
 .vscode/
 
