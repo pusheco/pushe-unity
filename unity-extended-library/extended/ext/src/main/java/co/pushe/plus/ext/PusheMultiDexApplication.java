@@ -12,7 +12,7 @@ public class PusheMultiDexApplication extends PusheUnityApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        android.support.multidex.MultiDex.install(this);
+        androidx.multidex.MultiDex.install(this);
     }
 
     @Override
