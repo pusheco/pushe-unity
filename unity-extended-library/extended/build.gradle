@@ -21,13 +21,13 @@ buildscript {
 
     ext {
         release = [
-                versionName: '0.4.7-beta12',
-                versionCode: 400762 // Mmmmppprr
+                versionName: '0.4.7',
+                versionCode: 400799 // Mmmmppprr
         ]
     }
 
     ext {
-        bintrayRepo = 'preview'
+        bintrayRepo = 'plugin'
         publishedGroupId = 'co.pushe.plus'
         siteUrl = 'https://pushe.co'
         gitUrl = 'https://github.com/pusheco/android-sdk'
@@ -43,7 +43,6 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'https://dl.bintray.com/pushe/preview'}
         google()
         jcenter()
         
