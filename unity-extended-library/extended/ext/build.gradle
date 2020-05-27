@@ -32,7 +32,7 @@ dependencies {
     def noCustomRxJava = { exclude group: "co.pushe.plus", module: "rxjava" }
 
     // Add all Pushe modules
-    def pusheVersion = '2.1.1-beta10'
+    def pusheVersion = '2.1.1'
     api "co.pushe.plus:core:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:notification:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:analytics:$pusheVersion", noCustomRxJava
