@@ -32,17 +32,18 @@ dependencies {
     def noCustomRxJava = { exclude group: "co.pushe.plus", module: "rxjava" }
 
     // Add all Pushe modules
-    def pusheVersion = '2.1.1'
+    def pusheVersion = '2.2.0-beta21'
     api "co.pushe.plus:core:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:notification:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:analytics:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:sentry:$pusheVersion", noCustomRxJava
+    api "co.pushe.plus:inappmessaging:$pusheVersion", noCustomRxJava
     api "co.pushe.plus:datalytics:$pusheVersion", noCustomRxJava
 
     api 'androidx.multidex:multidex:2.0.1'
 
     // Avoid adding custom RxJava since plugins might not be able to handle it.
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
 }
 
 ext {
