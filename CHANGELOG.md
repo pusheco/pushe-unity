@@ -1,5 +1,16 @@
 # ChangeLog
 
+## 0.5.0
+### Native plugin
+- Update native dependency to 2.2.0 (Featearing InAppMessaging)
+### Unity plugin
+- Add related APIs for supporing **InAppMessaging**:
+    - `TriggerEvent` to trigger local events.
+    - `EnableInAppMessaging`, `DisableInAppMessaging` and `IsInAppMessagingEnabled`
+    - `SetInAppMessagingListener` to enable receiving following events of an InAppMessage: `recieve`, `trigger`, `click`, `dismiss` and `buttonClick`
+    - `testInAppMessage` test function to enable testing the PIAM (Pushe InAppMessaging) via script code
+- Logging improvements
+
 ## 0.4.7
 ### Native plugin
 - Updated Native dependency to latest (2.1.1)
