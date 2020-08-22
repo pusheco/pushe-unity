@@ -146,7 +146,7 @@ public class PusheUnityApplication extends Application {
      * @param e is the thrown exception
      */
     public static void reportError(String message, Exception e) {
-        Log.e("Pushe", message, e);
+        Log.e("Pushe [Unity]", message, e);
         if (debug) {
             UnityPlayer.UnitySendMessage(DebugChannel, debugMethod, message + "\nStackTrace:\n" + e.getMessage());
         }
@@ -154,7 +154,7 @@ public class PusheUnityApplication extends Application {
 
     private static void report(String message) {
         if (debug) {
-            Log.i("Pushe", message);
+            Log.i("Pushe [Unity]", message);
             UnityPlayer.UnitySendMessage(DebugChannel, debugMethod, message);
         }
     }

@@ -6,10 +6,15 @@ import android.content.Context;
 import co.pushe.plus.Pushe;
 import co.pushe.plus.analytics.PusheAnalytics;
 import co.pushe.plus.analytics.event.Ecommerce;
+import co.pushe.plus.inappmessaging.InAppMessage;
+
 import com.unity3d.player.UnityPlayer;
 import java.util.Arrays;
 import java.util.List;
 import java.lang.Exception;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -37,7 +42,7 @@ public class PusheExt {
             List<String> tags = Arrays.asList(arrayOfTags);
             Pushe.removeTags(tags);
         } catch (Exception e) {
-            Log.e("Pushe","Failed to remove tags.", e);
+            Log.e("Pushe [Unity]","Failed to remove tags.", e);
         }
     }
 
@@ -55,6 +60,26 @@ public class PusheExt {
         PusheUnityApplication.initializeListeners();
     }
 
+
+    public static String inAppToJson(InAppMessage inAppMessage) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("title", inAppMessage.getTitle());
+            object.put("content", inAppMessage.getContent());
+            if (inAppMessage.getButtons() != null) {
+                JSONArray array = new JSONArray();
+                for (int i = 0; i < inAppMessage.getButtons().size(); i++) {
+                    JSONObject btn = new JSONObject();
+                    btn.put("text", inAppMessage.getButtons().get(i).getText());
+                    array.put(btn);
+                }
+                object.put("buttons", array);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return object.toString();
+    }
 
     // Analytics
 
