@@ -1,20 +1,31 @@
 # ChangeLog
 
-## 0.5.0
+## 0.5.0 (25 Aug, 2020)
 ### Native plugin
 - Update native dependency to 2.2.0 (Featearing InAppMessaging)
+- Notification callbacks are re-written using `AndroidJavaProxy`. No more `sendMessage` using unity and GameObjects are required. Passing a listener is enough.
+- [**Breaking**]: Remove `PusheMultiDexApplication` and `PusheUnityApplication` since they are no longer needed to exist.
+- Code optimizations
+
 ### Unity plugin
 - Add related APIs for supporing **InAppMessaging**:
     - `TriggerEvent` to trigger local events.
     - `EnableInAppMessaging`, `DisableInAppMessaging` and `IsInAppMessagingEnabled`
     - `SetInAppMessagingListener` to enable receiving following events of an InAppMessage: `recieve`, `trigger`, `click`, `dismiss` and `buttonClick`
     - `testInAppMessage` test function to enable testing the PIAM (Pushe InAppMessaging) via script code
+- Change `SetNotificationListener` implementation (No GameObject is needed anymore)
+- [**Breaking**]: Most of scripts are changed. You should consider removing `Pushe` folder and importing it again.
 - Logging improvements
+
+### Known issues
+- In Androids lower than 8.0 which `android.app.NotificationChannel` is not meaningful, some notification related APIs will not work and cause internal crash. **These crashes does not affect the app nor code**, but the functionality will not work.
+
 
 ## 0.4.7
 ### Native plugin
 - Updated Native dependency to latest (2.1.1)
 - `GetPusheId` function is removed
+
 ### Unity plugin
 - Added support for GDPR compliance. Methods `Initialize` and `setUserConsentGiven` for the feature.
 - Deprecated `GetAndroidId`. `GetDeviceId` should be used instead

@@ -7,11 +7,14 @@ import co.pushe.plus.Pushe;
 import co.pushe.plus.analytics.PusheAnalytics;
 import co.pushe.plus.analytics.event.Ecommerce;
 import co.pushe.plus.inappmessaging.InAppMessage;
+import co.pushe.plus.notification.NotificationButtonData;
+import co.pushe.plus.notification.NotificationData;
 
 import com.unity3d.player.UnityPlayer;
 import java.util.Arrays;
 import java.util.List;
 import java.lang.Exception;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,8 +27,6 @@ import org.json.JSONObject;
  *  The features include Listener to Unity bridge sender, API simpler, MultidexApplication class, etc.
  */
 public class PusheExt {
-
-    public static boolean debug = false;
 
     // Core
 
@@ -53,13 +54,8 @@ public class PusheExt {
         return TextUtils.join(",", Pushe.getSubscribedTopics());
     }
 
-    /**
-     * If you don't want to override application to get callbacks, instead call this method and your Unity game objects will receive callbacks.
-     */
-    public static void initializeNotificationListener() {
-        PusheUnityApplication.initializeListeners();
-    }
 
+    // InAppMessaging
 
     public static String inAppToJson(InAppMessage inAppMessage) {
         JSONObject object = new JSONObject();
@@ -90,24 +86,60 @@ public class PusheExt {
         }
     }
 
-    /**
-     * Change the debugging mode to see additional data in the log
-     *     and receive them from Unity message bridge.
-     * GameObject: "PusheCallbacks" MethodName: "OnDebugMessage"
-     */
-    public static void debuggingMode(boolean enable) {
-        debug = enable;
+    // Notification
+
+    private static String notificationToJson(NotificationData data) {
+        JSONObject j = new JSONObject();
+        try {
+            j.put("messageId", data.getMessageId());
+            if (data.getTitle() != null)
+                j.put("title", data.getTitle());
+            j.put("content", data.getContent());
+            if (data.getBigTitle() != null)
+                j.put("bigTitle", data.getBigTitle());
+            if (data.getBigContent() != null)
+                j.put("bigContent", data.getBigContent());
+            if (data.getSummary() != null)
+                j.put("summary", data.getSummary());
+            if (data.getImageUrl() != null)
+                j.put("imageUrl", data.getImageUrl());
+            if (data.getIconUrl() != null)
+                j.put("iconUrl", data.getIconUrl());
+            if (data.getBigIconUrl() != null)
+                j.put("bigIconUrl", data.getBigIconUrl());
+            if (data.getCustomContent() != null)
+                j.put("customContent", new JSONObject(data.getCustomContent()).toString());
+        } catch (JSONException e) {
+            reportError("Failed to parse notification", e);
+        }
+
+        return j.toString();
     }
 
-    public static void setCallbackGameObjectName(String objectName) {
+    private static String notificationButtonToJson(NotificationButtonData data) {
+        JSONObject j = new JSONObject();
         try {
-            if (objectName != null && !objectName.isEmpty()) {
-                PusheUnityApplication.EngineChannel = objectName;
-            } else {
-                PusheUnityApplication.reportError("GameObject must not be null or empty", new Exception());
-            }
-        } catch (Exception e) {
-            PusheUnityApplication.reportError("Failed to set the Game object name. Still using PusheCallback", e);
+            j.put("id", data.getId());
+            if (data.getText() != null)
+                j.put("text", data.getText());
+            if (data.getIcon() != null)
+                j.put("icon", data.getIcon());
+        } catch (JSONException e) {
+            reportError("Failed to parse button.", e);
         }
+        return j.toString();
     }
+
+    public static String mapToString(Map<String, Object> map) {
+        return new JSONObject(map).toString();
+    }
+
+    public static void reportError(String message, Exception e) {
+        Log.e("Pushe [Unity]", message, e);
+    }
+
+    private static void report(String message) {
+        Log.i("Pushe [Unity]", message);
+    }
+
 }
