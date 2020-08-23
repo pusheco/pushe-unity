@@ -46,7 +46,7 @@ We should interact with Pushe plus ourselves and make functions in scripts and t
 For instance, user wants to check for registration using `Pushe.isRegistered`. Normally he must do this:
 
 ```cs
-bool isRsgistered = new AndroidJavaClass("co.pushe.plus.Pushe").CallStatic<bool>("isRegistered");
+bool isRegistered = new AndroidJavaClass("co.pushe.plus.Pushe").CallStatic<bool>("isRegistered");
 ```
 
 But we made a function at the midlevel and tell user to use this:
@@ -70,8 +70,6 @@ In plugin we used this in our own native class to handle it.
 * Make a game object with the name we chose
 * add our script to it
 * The callback will be called when message is passed to it.
-
-> Checkout `PusheCallback` scripts and also `PusheUnityApplication` class in `unity-extended` folder.
 
 ## Why we made a Native module?
 
