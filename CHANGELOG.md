@@ -1,10 +1,10 @@
 # ChangeLog
 
-## 0.5.0 (25 Aug, 2020)
+## 0.5.0 (26 Aug, 2020)
 ### Native plugin
 - Update native dependency to 2.2.0 (Featearing InAppMessaging)
 - Notification callbacks are re-written using `AndroidJavaProxy`. No more `sendMessage` using unity and GameObjects are required. Passing a listener is enough.
-- [**Breaking**]: Remove `PusheMultiDexApplication` and `PusheUnityApplication` since they are no longer needed to exist.
+- [**Breaking**]: Remove `PusheMultiDexApplication` and `PusheUnityApplication` and way of adding notification callbacks.
 - Code optimizations
 
 ### Unity plugin
