@@ -16,6 +16,6 @@ If you really don't want to use `Gradle template`, add `co.pushe.plus:unity-exte
 
 ## More info
 
-For further information chackout the documentations.
+For further information chackout the [documentations](https://docs.pushe.co/docs/unity/intro).
 
 You can also see some actions in the sample code, `SampleCode.cs`.
