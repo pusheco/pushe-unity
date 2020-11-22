@@ -1,2 +1,0 @@
-include ':ext'
-rootProject.name='extended'

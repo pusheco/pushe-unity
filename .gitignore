@@ -1,17 +1,12 @@
-
-unity-extended-library/extended/.idea/
-unity-extended-library/extended/.settings/
-unity-extended-library/extended/.project
-unity-extended-library/extended/ext/.settings/
-unity-extended-library/extended/ext/.project
-unity-extended-library/extended/ext/.classpath
-
 .vscode/
-
-scripts/Library
-scripts/Logs
-scripts/Packages
-scripts/ProjectSettings
-scripts/Temp
+.idea
+Library
+Logs
+Packages
+ProjectSettings
+Temp
+obj
 
 *.meta
+*.sln
+*.csproj
