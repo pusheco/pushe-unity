@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Pushe
 {
@@ -164,7 +162,7 @@ namespace Pushe
             }
             catch (Exception e)
             {
-                global::Pushe.PusheUnity.Log($"Could not send a notification {e}");
+                global::Pushe.PusheUnity.Log("Could not send a notification " + e);
             }
         }
 
@@ -298,7 +296,7 @@ namespace Pushe
                 string json = PusheUtils.Extension("notification").CallStatic<string>("notificationToJson", androidJavaObject);
                 notification = JsonUtility.FromJson<NotificationData>(json);
             } catch(Exception e) {
-                global::Pushe.PusheUnity.Log($"Failed to parse notification {e}");
+                global::Pushe.PusheUnity.Log("Failed to parse notification" + e);
             }
             return notification;
         }
@@ -330,7 +328,7 @@ namespace Pushe
                 string json = PusheUtils.Extension("notification").CallStatic<string>("notificationButtonToJson", androidJavaObject);
                 button = JsonUtility.FromJson<NotificationButtonData>(json);
             } catch(Exception e) {
-                global::Pushe.PusheUnity.Log($"Failed to parse notification {e}");
+                PusheUnity.Log("Failed to parse notification " + e);
             }
             return button;
         }

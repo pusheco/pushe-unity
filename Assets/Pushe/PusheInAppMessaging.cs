@@ -1,29 +1,26 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Pushe
 {
     public static class PusheInAppMessaging {
-        private const string PushePath = "co.pushe.plus.Pushe";
 
         /// Trigger a local event. Local event is useless for sending data to server.
         /// Since no data is sent to server. Local events are only useful for triggering an in app messaging 
         /// which is stored before. If you want to send data to server 
         public static void TriggerEvent(string eventName) {
-            global::Pushe.PusheUnity.Log($"Triggering local event {eventName}");
+            PusheUnity.Log("Triggering local event " + eventName);
             PiamService().Call("triggerEvent", eventName);
         }
 
         public static void EnableInAppMessaging() {
-            global::Pushe.PusheUnity.Log("Enabling InAppMessaging");
+            PusheUnity.Log("Enabling InAppMessaging");
             PiamService().Call("enableInAppMessaging");
         }
 
         public static void DisableInAppMessaging() {
-            global::Pushe.PusheUnity.Log("Disabling InAppMessaging");
+            PusheUnity.Log("Disabling InAppMessaging");
             PiamService().Call("disableInAppMessaging");
         }
 
@@ -39,7 +36,7 @@ namespace Pushe
         /// <param name="message">Is a json string adopted from Restful-API body</param>
         /// <param name="instant">Tells if messsage should be triggered instantly or wait for it's display conditions.</param>
         public static void TestInAppMessage(string message, bool instant = false) {
-            global::Pushe.PusheUnity.Log($"Sending test message to InAppMessaging module\nMessage: {message}");
+            PusheUnity.Log("Sending test message to InAppMessaging module\nMessage:" + message);
             PiamService().Call("testInAppMessage", new object[] {message, instant});
         }
 
@@ -56,7 +53,7 @@ namespace Pushe
 
         private static AndroidJavaObject PiamService()
         {
-            return new AndroidJavaClass(PushePath).CallStatic<AndroidJavaObject>("getPusheService", "inappmessaging");
+            return PusheUtils.Native().CallStatic<AndroidJavaObject>("getPusheService", "inappmessaging");
         }
     }
 
@@ -102,7 +99,7 @@ namespace Pushe
                 var inappJson = PusheUtils.Extension("inappmessaging").CallStatic<string>("inAppToJson", androidObject);
                 inapp = JsonUtility.FromJson<InAppMessage>(inappJson);
             } catch(Exception e) {
-                global::Pushe.PusheUnity.Log($"Failed to parse inapp message.\n {e}");
+                PusheUnity.Log("Failed to parse inapp message.\n" + e);
             }
             return inapp;
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
@@ -72,15 +71,6 @@ namespace Pushe
         public static string GetGoogleAdvertisingId()
         {
             return PusheUtils.Native().CallStatic<string>("getGoogleAdvertisingId");
-        }
-
-        /// <summary>
-        /// Returns android id of device
-        /// </summary>
-        [Obsolete("GetAndroidId is deprecated, please use GetDeviceId instead.")]
-        public static string GetAndroidId()
-        {
-            return PusheUtils.Native().CallStatic<string>("getAndroidId");
         }
 
         /// <summary>

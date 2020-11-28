@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Pushe
 {
-    class PusheUtils
+    static class PusheUtils
     {
 
         private const string PushePath = "co.pushe.plus.Pushe";

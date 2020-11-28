@@ -65,14 +65,11 @@ public class SampleCode : MonoBehaviour
         PusheUnity.Log("Topics: " + string.Join(",", PusheUnity.GetSubscribedTopics()));
         
         PusheInAppMessaging.DisableInAppMessaging();
-        PusheUnity.Log($"Is in app messaging enabled? {PusheInAppMessaging.IsInAppMessagingEnabled()}");
+        PusheUnity.Log("Is in app messaging enabled?" + PusheInAppMessaging.IsInAppMessagingEnabled());
         PusheInAppMessaging.EnableInAppMessaging();
-        PusheUnity.Log($"Is in app messaging enabled? {PusheInAppMessaging.IsInAppMessagingEnabled()}");
+        PusheUnity.Log("Is in app messaging enabled? " + PusheInAppMessaging.IsInAppMessagingEnabled());
         PusheInAppMessaging.TriggerEvent("qqq");
         PusheInAppMessaging.SetInAppMessagingListener(new InAppMessagingListener());
-
-        string testMessage = "{\"message_id\": \"notATestMessage\", \"type\":\"center\",\"title\":{\"text\":\"\u0633\u0644\u0627\u0645 \u062a\u06cc\u062a\u0631 \u0647\u0633\u062a\u0645\",\"dir\":\"left\", \"size\":18,\"color\":\"#000000\",\"dir\":\"left\"},\"content\":{\"text\":\"\u0627\u06cc\u0646\u062c\u0627 \u0645\u062a\u0646 \u0642\u0631\u0627\u0631 \u0645\u06cc\u06af\u06cc\u0631\u0647.\",\"size\":15,\"dir\":\"left\"},\"condition\":{\"event\":\"qqq\",\"count\":1,\"time_gap\":0},\"buttons\":[{\"action\":{\"action_type\":\"D\"},\"text\":\"\u0627\u062f\u0627\u0645\u0647\",\"color\":\"#fff000\",\"bg\":\"#000000\",\"dir\":\"center\"}],\"action\":{\"action_type\":\"D\"},\"bg\":\"#ffffff\",\"im_count\":0}";
-        PusheInAppMessaging.TestInAppMessage(testMessage);
     }
 
     /**
@@ -124,22 +121,22 @@ public class PusheNotifListener : IPusheNotificationListener
 public class InAppMessagingListener : IPusheInAppMessagingListener
 {
     public void OnInAppMessageReceived(InAppMessage inAppMessage) {
-        PusheUnity.Log($"In app message received: {inAppMessage.title}");
+        PusheUnity.Log("In app message received: " + inAppMessage.title);
     }
 
     public void OnInAppMessageTriggered(InAppMessage inAppMessage) {
-        PusheUnity.Log($"In app message triggered: {inAppMessage.title}");
+        PusheUnity.Log("In app message triggered: " + inAppMessage.title);
     }
 
     public void OnInAppMessageClicked(InAppMessage inAppMessage) {
-        PusheUnity.Log($"In app message Clicked: {inAppMessage.title}");
+        PusheUnity.Log("In app message Clicked: " + inAppMessage.title);
     }
 
     public void OnInAppMessageDismissed(InAppMessage inAppMessage) {
-        PusheUnity.Log($"In app message dismissed: {inAppMessage.title}");
+        PusheUnity.Log("In app message dismissed: " + inAppMessage.title);
     }
 
     public void OnInAppMessageButtonClicked(InAppMessage inAppMessage, int index) {
-        PusheUnity.Log($"In app message button: {inAppMessage.title}, index: {index}");
+        PusheUnity.Log("In app message button: " + inAppMessage.title + " index: " + index);
     }
 }
