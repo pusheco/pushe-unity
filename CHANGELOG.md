@@ -1,5 +1,27 @@
 # ChangeLog
 
+## 0.6.0 (28 Nov, 2020)
+> **Breaking**
+> Native module `unity-extended` is removed and the native SDK itself
+> will provide the util methods.
+
+#### Plugin    
+- **EDM4U** is used instead of Gradle. Thus, support of Unity engine comes back to `4.x`
+- Remove of `unity-extended` native library
+- Add support for .Net 3.5 for Unity 2017
+    Unity 2017 uses `.Net3.5` and supports `.Net 4.5` as an experimental feature. Since .net4 is only required for
+    "String interpolation", it's better to remove that feature out of scripts and support earlier as well.
+- Rename `Pushe` to `PusheUnity` to respect Pushe namespace
+- Added `Template` folder for Manifest and gradle template
+
+#### Android
+- Update to `2.4.1-beta05`
+- New feature: support of `hms` (Huawei mobile services) along with `fcm` (Firebase cloud messaging)    
+    **From now on your app users can receive push notifications even if they don't have Google play services and instead use HMS-Core**
+
+#### iOS
+- iOS is not yet supported
+
 ## 0.5.0 (26 Aug, 2020)
 ### Native plugin
 - Update native dependency to 2.2.0 (Featearing InAppMessaging)
