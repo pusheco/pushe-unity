@@ -6,7 +6,9 @@ Packages
 ProjectSettings
 Temp
 obj
+Assets/Plugins/Editor
 
 *.meta
 *.sln
 *.csproj
+*.apk
