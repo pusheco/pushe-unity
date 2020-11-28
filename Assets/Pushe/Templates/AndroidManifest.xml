@@ -5,7 +5,6 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.unity3d.player"
-    xmlns:tools="http://schemas.android.com/tools"
     android:installLocation="preferExternal">
     <supports-screens
         android:smallScreens="true"
@@ -14,6 +13,12 @@
         android:xlargeScreens="true"
         android:anyDensity="true"/>
 
+    <!--
+     If you encountered any error about more DEX than possible for a single DEX,
+       you need to enable multidex. 
+       `multiDexEnabled true` in your gradle config (launcher or main)
+       and "androidx.multidex.MultiDexApplication" as android:name of this tag
+    -->
     <application
         android:name="androidx.multidex.MultiDexApplication"
         android:theme="@style/UnityThemeSelector"
@@ -28,13 +33,19 @@
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
 
-        <!-- Pushe TOKEN -->
+        <!-- 
+         Pushe TOKEN
+         Add your pushe token
+         -->
         <meta-data
                 android:name="pushe_token"
                 android:value="" />
 
-        <!-- HMS -->
-
+        <!--
+         HMS
+         add your appId after 'appid=' string.
+         ex: "appid=232323"
+         -->
         <meta-data
                 android:name="com.huawei.hms.client.appid"
                 android:value="appid=" />

@@ -1,13 +1,4 @@
-// If you don't have a mainTemplate.gradle, copy this file to `Assets/Plugins/Android` and **Use gradle to build**
-// If you have one, add to dependencies block:
-
-//		implementation ('co.pushe.plus:unity-extended:$latest')
-
-// Apply multidex using
-//		multiDexEnabled true
-// in defaultConfig block
-
-buildscript {
+﻿buildscript {
 	repositories {
 		google()
 		jcenter()
@@ -23,11 +14,11 @@ allprojects {
       google()
       jcenter()
 	  // Pushe Extended plugin
-	  maven { url 'https://dl.bintray.com/pushe/plugin' }
+	  maven { url 'https://dl.bintray.com/pushe/preview' }
+	  maven { url 'https://developer.huawei.com/repo' }
       flatDir {
         dirs 'libs'
       }
-	  mavenLocal()
    }
 }
 
@@ -37,7 +28,7 @@ dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
 
 	// Adding Pushe Plus
-	implementation ('co.pushe.plus:unity-extended:+')
+	implementation('co.pushe.plus:base:2.4.1-beta05')
 	// MultiDex
 	implementation 'androidx.multidex:multidex:2.0.1'
 **DEPS**}
@@ -60,6 +51,8 @@ android {
 		versionName	'**VERSIONNAME**'
 
 	}
+	
+	
 
 	lintOptions {
 		abortOnError false
@@ -85,6 +78,11 @@ android {
   		}
 	}
 **PACKAGING_OPTIONS**
+    
+    packagingOptions {
+        exclude 'META-INF/proguard/coroutines.pro'
+    }
+
     bundle {
         language {
             enableSplit = false
@@ -96,7 +94,17 @@ android {
             enableSplit = true
         }
     }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //kotlinOptions {
+        //jvmTarget = "1.8"
+    //}
 }
+
+
 
 
 **SOURCE_BUILD_SETUP**
