@@ -8,6 +8,7 @@
         <androidPackage spec="co.pushe.plus:base:2.4.1-beta05">
             <repository>https://dl.bintray.com/pushe/preview</repository>
         </androidPackage>
+        <androidPackage spec="androidx.multidex:multidex:2.0.0" />
     </androidPackages>
 
     <!-- Refer to 
