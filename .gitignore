@@ -1,0 +1,14 @@
+.vscode/
+.idea
+Library
+Logs
+Packages
+ProjectSettings
+Temp
+obj
+Assets/Plugins/Editor
+
+*.meta
+*.sln
+*.csproj
+*.apk
