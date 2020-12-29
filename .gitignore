@@ -12,3 +12,5 @@ Assets/Plugins/Editor
 *.sln
 *.csproj
 *.apk
+
+.DS_Store
