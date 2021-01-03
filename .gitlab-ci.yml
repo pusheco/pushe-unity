@@ -1,0 +1,32 @@
+stages:
+  - build
+  - source
+
+image: alpine:latest # Should consider using Unity
+
+build:
+  stage: build
+  script: 
+    - echo "Nothing here."
+
+upload_source:
+  stage: source
+  only:
+    - master
+    - develop
+  before_script:
+    - echo "---- Applying Git ----"
+    - apk update; apk add git; apk add openssh
+    - echo "$SSH_PRIVATE_KEY" > ~/key
+    - chmod 600 ~/key
+    - git config --global user.email "mmalvandi75@gmail.com"
+    - git config --global user.name "mahdi-malv"
+  script:
+    - echo  "---- Upload source to Github ----"
+    - rm -rf .git || true # In case it already existed
+    - export GIT_SSH_COMMAND="ssh -i ~/key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+    - git init; git remote add source git@github.com:pusheco/pushe-unity.git
+    - git add -A; git commit -m 'Changes of latest version'
+    - git push -f source master
+  dependencies:
+    - build
