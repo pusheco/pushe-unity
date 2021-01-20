@@ -1,0 +1,18 @@
+﻿<dependencies>
+    <androidPackages>
+        <repositories>
+            <repository>https://jcenter.bintray.com</repository>
+            <repository>https://dl.bintray.com/pushe/preview</repository>
+            <repository>https://developer.huawei.com/repo</repository>
+        </repositories>`
+        <androidPackage spec="co.pushe.plus:base:2.4.2-alpha03" />
+        <androidPackage spec="co.pushe.plus:hms:2.4.2-alpha03" />
+        <androidPackage spec="co.pushe.plus:inappmessaging:2.4.2-alpha03" />
+        <androidPackage spec="androidx.multidex:multidex:2.0.0" />
+    </androidPackages>
+
+    <iosPods>
+        <iosPod name="Pushe" version="~> 1.1.4" bitcodeEnabled="true"
+            minTargetSdk="10.0" />
+    </iosPods>
+</dependencies>
