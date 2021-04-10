@@ -1,0 +1,17 @@
+.vscode/
+.idea
+Library
+Logs
+Packages
+ProjectSettings
+Temp
+obj
+Assets/Plugins/Editor
+Assets/Plugins/Android/
+
+*.meta
+*.sln
+*.csproj
+*.apk
+
+.DS_Store

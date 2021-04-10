@@ -1,0 +1,16 @@
+﻿<dependencies>
+    <androidPackages>
+        <repositories>
+            <repository>https://developer.huawei.com/repo</repository>
+        </repositories>
+        <androidPackage spec="co.pushe.plus:base:2.5.0" />
+        <androidPackage spec="co.pushe.plus:hms:2.5.0" />
+        <androidPackage spec="co.pushe.plus:inappmessaging:2.5.0" />
+        <androidPackage spec="androidx.multidex:multidex:2.0.0" />
+    </androidPackages>
+
+    <iosPods>
+        <iosPod name="Pushe" version="~> 1.1.4" bitcodeEnabled="true"
+            minTargetSdk="10.0" />
+    </iosPods>
+</dependencies>
