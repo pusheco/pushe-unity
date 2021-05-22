@@ -1,7 +1,7 @@
 # ChangeLog
 
 ## 2.5.0 (9 May, 2021)
-- **Breaking**: Plugin version will not match the native release version
+- **Breaking**: Plugin version will now match the native release version
 
 ### Plugin
 - Added `PusheNotification` api `EnableNotificationForceForegroundAware`
